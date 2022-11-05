@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700');
+@import url('https://fonts.googleapis.com/css?family=Inconsolata');
+@import url('https://fonts.googleapis.com/css?family=Tangerine|Inconsolata|Droid+Sans');
+
+
+
+.bg-light{
+    box-shadow: rgb(193, 226, 74) 22px -16px 18px -5px;
+    background-color: rgb(82, 85, 77) !important;
+    -webkit-box-shadow: rgb(105, 115, 113) 22px -16px 18px -5px;
+    -moz-box-shadow: rgb(96, 99, 98) 22px -16px 18px -5px;
+    box-shadow: rgb(105, 115, 113) 22px -16px 18px -5px;
+}
+
+
+.navbar-light .navbar-brand{
+    color: rgb(168, 238, 56) ;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 40px;
+}
+
+
+.nav-link{
+    font-family: 'Source Sans Pro', sans-serif;
+    color: rgb(14, 13, 13) !important;
+}
+
+
+
+.nav-link:hover{
+    color: #6af818 !important; 
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    overflow: auto;
+        font-family: 'Inconsolata', ;
+        color: rgb(16, 16, 17);
+        background-color: #b7bbbd }
+      ul.navbar {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        position: absolute;
+        top: 2em;
+        left: 1em;
+        width: 9em }
+      h1 {
+        font-family: Droid Sans, sans-serif }
+      ul.navbar li {
+        background: white;
+        margin: 0.5em 0;
+        padding: 0.3em;
+        border-right: 1em solid black }
+      ul.navbar a {
+        text-decoration: none }
+      a:link {
+        color: blue }
+      a:visited {
+        color: purple }
+      address {
+        margin-top: 1em;
+        padding-top: 1em;
+        border-top: thin dotted 
+    }
+
+
+
+h1,h4,h5{
+	margin:0;
+    color: rgb(224, 40, 80);
+    text-shadow: 1px 1px #131212;
+    font-family: 'Inconsolata', sans-serif;
+
+}
+
+
+h2,h6 {
+	margin:0;
+    color: rgb(7, 11, 219);
+    text-shadow: 1px 1px #131212;
+    font-family: 'Inconsolata', sans-serif;
+
+}
+
+h3{
+	margin:0;
+    color: rgb(173, 50, 87);
+    text-shadow: 1px 1px #131212;
+    font-family: 'Inconsolata', sans-serif;
+
+}
+
+
+.container {
+	max-width: 1000px;
+	margin-right:auto;
+	margin-left:auto;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	min-height:100vh;
+}
+
+table 	tr:nth-child(odd) td, table tr:nth-child(odd) th{
+    border-spacing: 1; 
+    background:white;
+    border-radius:6px;
+    overflow:hidden;
+    max-width:800px; 
+    width:1%;
+    margin:10px auto;
+    position:relative;
+    
+}
+
+a{
+    color: rgb(29, 6, 243) !important;
+}
+a:hover{
+    color: rgb(12, 238, 42)  !important;
+}
+
+fieldset legend {
+    font-family: 'Helvetica', sans-serif;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    color: brown;
+}
+hr{
+    background-color: rgb(239, 245, 225); 
+}
+.btn-primary{
+    display: inline-block;
+    padding: 10px 20px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    background-color: #adcc3d;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+} 
+.btn-primary:hover{
+    background-color: #e91010;
+}
+.btn-primary:active {
+    background-color: #58d44e;
+    box-shadow: 0 5px #666;
+    transform: translate(4px);
+  }
