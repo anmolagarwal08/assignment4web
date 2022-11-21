@@ -12,8 +12,8 @@ class Data{
 }
 
 
-//
-let dataCollection = null;
+
+ dataCollection = null;
 
 module.exports.initialize = function () {
     return new Promise( (resolve, reject) => {
@@ -36,14 +36,14 @@ module.exports.initialize = function () {
 }
 
 // student function to get student objects
-module.exports.getAllStudents = function(){
-    return new Promise((resolve,reject)=>{
-        if (dataCollection.students.length == 0) {
-            reject("no results returned"); return;
-        }
-
-        resolve(dataCollection.students);
-    })
+module.exports.getAllStudents = function () {
+  return new Promise((resolve, reject) => {
+    if (dataCollection.students.length > 0) {
+      return resolve(dataCollection.students);
+    } else {
+      return reject("No results returned");
+    }
+  });
 }
 
 // TA function to get student objects with TA:true
@@ -68,14 +68,14 @@ module.exports.getTAs = function () {
 
 
 // courses function to get courses object 
-module.exports.getCourses = function(){
-   return new Promise((resolve,reject)=>{
-    if (dataCollection.courses.length == 0) {
-        reject("no results retunred"); return;
+module.exports.getCourses = function () {
+  return new Promise((resolve, reject) => {
+    if (dataCollection.courses.length > 0) {
+      return resolve(dataCollection.courses);
+    } else {
+      return reject("No results returned");
     }
-
-    resolve(dataCollection.courses);
-   });
+  });
 }
 
 
@@ -97,23 +97,23 @@ module.exports.getStudentsByCourse = function(course){
     });
   }
   
-  module.exports.getStudentByNum = function(num){
-    return new Promise((resolve, reject) => {
-      if (num < 0) { 
-        reject("Invalid student number"); 
-        return false; 
-      }
-      let studentinfo = null; 
-      for (let i = 1; i < dataCollection.students.length; i++) {
-        if(dataCollection.students[i]["studentNum"] == num){
-          studentinfo = dataCollection.students[i]; break;
+  module.exports.getStudentByNum=function(num){
+    return new Promise(function(resolve,reject){
+        var student = new Object();
+        dataCollection.students.forEach((item) =>{
+            if(item.studentNum==num){
+                student=item;
+            } 
+            }
+        ); 
+        if(Object.entries(student).length === 0){
+          reject("No student details found with Student Number:" + num);
+        }else{
+            resolve(student);
         }
-      }
-      if (dataCollection.students.length == 0){
-        reject("No results returned" + num);
-      }
-      resolve(studentinfo);
+     
     });
+  
   }
 
   module.exports.addStudent=function(studentData){
@@ -129,5 +129,35 @@ module.exports.getStudentsByCourse = function(course){
       else{
         reject("Error")
       }
+    });
+  }
+
+module.exports.getCourseById = function (id) {
+  return new Promise((resolve, reject) => {
+    var course = null;
+
+    for (let i = 0; i < dataCollection.courses.length; i++) {
+      if (dataCollection.courses[i]["courseId"] == id) {
+        course = dataCollection.courses[i];
+      }
+    }
+
+    if (!course) {
+      reject("query returned 0 results"); return;
+    }
+    resolve(course);
+  })
+}
+
+  module.exports.updateStudent = function (studentData) {
+    return new Promise(function (resolve, reject) {
+  
+      dataCollection.students.forEach((item) => {
+        if (item.studentNum == studentData.studentNum) {
+          dataCollection.students.splice(item.studentNum - 1, 1, studentData)
+        }
+      }
+      );
+      resolve("It Worked");
     });
   }
