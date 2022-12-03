@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-md-12">
         <br>
-        <h2>Courses</h2>
+        <h2><a href="/courses/add" class="btn btn-success float-right">Add New Course</a></h2>
         <hr />
         <div class="table-responsive">
             <table class="table">
@@ -12,32 +12,21 @@
                         <th>Course&nbsp;Description</th>
                     </tr>
                 </thead>
-                <tbody>
-                        {{#each courses}}
-                        <tr>    
-                                <td>{{courseId}}</td>
-                                <td> <a href="/course/{{courseId}}" name="courseCode">  
-                                    {{courseCode}} </a> 
-                                </td>
-                                <td><a href="/students?course={{courseid}}">{{courseDescription}}  </a> <br /></td>
-                        </tr>
-                         {{/each}}
-                        
-                </tbody>
-            </table>
-        </div>
+  <tbody>
+     {{#each courses}}
+      <tr>
+               <td><a href="/course/{{this.courseId}}">{{this.courseCode}}</a></td>
+                                      
+              <td><a href="/students?course={{this.courseId}}">{{this.courseDescription}}</a></td>
 
-    </div>
-</div>
-
-<div class="col-md-12 text-center">
-    {{#unless courses}}
-        <tr>
-            <th>CourseId</th>
-            <th>Course&nbsp;Code</th>
-            <th>Course&nbsp;Description</th>
-        </tr>
-    {{else}}
-        <strong>{{message}}</strong>
-    {{/unless}}
+              <td><a href="course/delete/{{this.courseId}}" class="btn btn-danger">Delete</a></td>
+    </tr>
+    {{/each}}
+    
+  </tbody>
+</table>
+ {{#unless courses}}
+ <center> <strong>{{message}}</strong> </center> 
+{{/unless}}
+ </div>
 </div>
