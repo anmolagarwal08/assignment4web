@@ -106,7 +106,7 @@ h3{
 
 table 	tr:nth-child(odd) td, table tr:nth-child(odd) th{
     border-spacing: 1; 
-    background:white;
+    background:rgb(156, 18, 18);
     border-radius:6px;
     overflow:hidden;
     max-width:800px; 
